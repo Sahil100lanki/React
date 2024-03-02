@@ -1,14 +1,34 @@
 import "./App.css";
 import Video from "./components/Video.jsx";
+import videos from "./data/data.js";
+import PlayButton from "./components/PlayButton.jsx";
+import Counter from "./components/Counter.jsx";
 
 function App() {
-  let x = 10;
-
   return (
     <>
-    <Video  title="My New Vlog" views="100K" time="1 Month ago"></Video> <hr />
-    <Video  title="React Js Tutorial" views="130K" time="20 Days ago"></Video>
-      
+      <div>Videos Lists</div>
+      <PlayButton
+        onPlay={() => alert("Playyyyy")}
+        onPause={() => alert("Paused..")}
+      >
+        Play
+      </PlayButton>
+      {/* <PlayButton message ={"Paused.."} onSmash={()=> alert("Pauseddddd")}>Pause</PlayButton> */}
+    <Counter></Counter>
+      <br />
+      {videos.map((video) => (
+        <Video
+          key={video.id}
+          id={video.id}
+          channel={video.channel}
+          title={video.title}
+          views={video.views}
+          time={video.time}
+          verified={video.verified}
+        ></Video>
+      ))}
+      <hr />
     </>
   );
 }

@@ -1,17 +1,21 @@
-function Video({channel,title,views,time}) {
 
+function Video({ channel, title, views, time, verified,id }) {
+ 
 
   return (
     <>
-      <img src="https://picsum.photos/300/200" alt="RandomPics" />
-      <h2>{title}</h2>
+      <div className="image">
+        <img src={`https://picsum.photos/300/200?random=${id}` } alt="RandomPics" />
+      </div>
+      <div className="title">{title}</div>
       <div>
-        <h4>{channel="Sahil Solanki"} </h4>  
+        <div className="channelName">{channel} {verified ? "✅" : null}</div>
         <button style={{ backgroundColor: "red", color: "white" }}>
-          Subscribe
+          Subscribe ❤
         </button>
-        <p>{views} Views : {time}</p> 
-      
+        <p>
+          {views} Views • {time}
+        </p>
       </div>
     </>
   );
